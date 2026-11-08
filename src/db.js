@@ -1,5 +1,4 @@
-// Mock database berbasis file JSON: dipilih karena PRD menyetujui array/JSON
-// untuk simulasi, tanpa dependensi native yang perlu dikompilasi di Windows.
+
 const fs = require('fs');
 const path = require('path');
 
