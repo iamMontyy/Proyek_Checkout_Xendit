@@ -5,10 +5,6 @@ const db = require('../db');
 const { mapSessionStatus } = require('../utils/order-status');
 
 const router = Router();
-
-// Xendit menandai setiap webhook dengan header x-callback-token.
-// Server hanya menerima bila isinya sama dengan yang tercatat di .env.
-// Perbandingan pakai timing-safe agar tidak bocor lewat lama waktu respons.
 function verifyCallbackToken(headerToken) {
   const expected = config.xendit.callbackToken;
   if (!expected || typeof headerToken !== 'string') return false;
@@ -24,7 +20,6 @@ router.post('/', (req, res) => {
     return res.status(401).json({ error: 'x-callback-token tidak valid' });
   }
 
-  // Bentuk notifikasi: { event: "payment_session.completed", data: { reference_id, status, ... } }
   const session = notification.data || {};
   const orderId = session.reference_id;
 
