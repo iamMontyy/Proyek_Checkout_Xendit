@@ -6,8 +6,6 @@ const db = require('../db');
 const { mapSessionStatus } = require('../utils/order-status');
 
 const router = Router();
-
-// Sajikan ringkasan pesanan untuk halaman status; last_notification tidak ikut karena datanya besar.
 function toPublicOrder(order) {
   const { last_notification, ...publicFields } = order;
   return publicFields;
@@ -18,9 +16,6 @@ router.get('/:orderId', (req, res) => {
   if (!order) return res.status(404).json({ error: 'Pesanan tidak ditemukan' });
   res.json(toPublicOrder(order));
 });
-
-// Fallback ketika webhook belum bisa masuk (misal Ngrok belum jalan):
-// tanya status terbaru langsung ke Xendit lewat GET /sessions, lalu perbarui DB.
 router.get(
   '/:orderId/refresh',
   asyncHandler(async (req, res) => {
