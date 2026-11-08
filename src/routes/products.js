@@ -1,6 +1,4 @@
 const { Router } = require('express');
-
-// Katalog dummy statis: PRD dan batasi cakupan ke 1-2 produk tanpa fitur cart.
 const PRODUCTS = [
   { id: 'p1', name: 'Tumbler Kopi 350ml', price: 95000 },
   { id: 'p2', name: 'Kopi Arabika Gayo 200g', price: 58000 },
