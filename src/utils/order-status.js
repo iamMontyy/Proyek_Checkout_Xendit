@@ -1,4 +1,4 @@
-// Peta status Payment Session Xendit ke status internal pesanan.
+
 const SESSION_STATUS = {
   ACTIVE: 'pending',
   COMPLETED: 'paid',
