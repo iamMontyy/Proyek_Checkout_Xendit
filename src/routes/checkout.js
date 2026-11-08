@@ -13,9 +13,6 @@ function generateOrderId() {
   const random = crypto.randomBytes(2).toString('hex').toUpperCase();
   return `ORDER-${stamp}-${random}`;
 }
-
-// Data pelanggan contoh memang bagian dari simulasi, bukan data asli.
-// reference_id harus alfanumerik tanpa karakter spesial (syarat Xendit).
 function dummyCustomer() {
   const stamp = new Date().toISOString().slice(0, 10).replaceAll('-', '');
   const random = crypto.randomBytes(3).toString('hex').toUpperCase();
