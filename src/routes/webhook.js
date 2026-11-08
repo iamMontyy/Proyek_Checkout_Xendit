@@ -25,7 +25,6 @@ router.post('/', (req, res) => {
 
   const order = db.get(orderId);
   if (!order) {
-    // Tetap 200 agar Xendit berhenti mengulang pengiriman untuk order yang tak dikenal.
     console.warn(`[webhook] reference_id tidak dikenal: ${orderId}`);
     return res.status(200).json({ received: true, note: 'reference_id tidak ditemukan' });
   }
