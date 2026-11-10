@@ -15,9 +15,6 @@ const config = {
 };
 
 config.xendit.isConfigured = Boolean(config.xendit.secretKey && config.xendit.callbackToken);
-
 config.xendit.apiBaseUrl = 'https://api.xendit.co';
-
 config.xendit.canRedirectBack = config.appBaseUrl.startsWith('https://');
-
 module.exports = config;
