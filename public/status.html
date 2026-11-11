@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Status pesanan: Belajartoko</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Belajartoko</a>
+    <span class="tagline">Xendit test mode, tanpa uang asli</span>
+  </header>
+
+  <main class="page">
+    <h1>Status Pesanan</h1>
+
+    <div id="alert" class="alert" role="alert" hidden></div>
+
+    <p id="order-loading" class="products__loading" aria-live="polite">Memeriksa status pesanan...</p>
+
+    <section id="order-card" class="order" hidden aria-live="polite">
+      <p id="order-status" class="badge"></p>
+      <dl class="order__detail">
+        <div><dt>Order ID</dt><dd id="order-id"></dd></div>
+        <div><dt>Produk</dt><dd id="order-product"></dd></div>
+        <div><dt>Total</dt><dd id="order-amount"></dd></div>
+        <div><dt>Dibuat</dt><dd id="order-created"></dd></div>
+        <div><dt>Diperbarui</dt><dd id="order-updated"></dd></div>
+      </dl>
+      <div class="order__actions">
+        <a id="order-pay" class="btn" href="#" target="_blank" rel="noreferrer" hidden>Lanjutkan Pembayaran</a>
+        <button id="order-refresh" class="btn btn--ghost">Cek Status ke Xendit</button>
+      </div>
+      <p class="hint">Selama status masih menunggu pembayaran, halaman ini memeriksa perubahan setiap 3 detik.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><a href="/">Buat pesanan lain</a></p>
+  </footer>
+
+  <script src="/assets/status.js"></script>
+</body>
+</html>

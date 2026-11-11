@@ -1,0 +1,192 @@
+/* Belajartoko: gaya minimal untuk halaman simulasi.
+   Keputusan: tanpa arah desain (draf R-37), pakai font sistem agar tetap
+   terbaca secara offline, tema terang, satu warna aksen hijau tua, dan
+   kontras teks memenuhi WCAG AA. */
+
+:root {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --ink: #1c2733;        /* kontras 13:1 di atas surface */
+  --muted: #5d6b78;      /* kontras 4.6:1 di atas bg */
+  --line: #d8dee3;
+  --accent: #14664b;     /* aksen tunggal, teks putih 6.7:1 */
+  --accent-press: #0f523c;
+  --focus: #1450a3;
+  --status-paid-bg: #dff2e4;
+  --status-paid-ink: #114d31;
+  --status-pending-bg: #fdf0d7;
+  --status-pending-ink: #6d4400;
+  --status-failed-bg: #fbe4e5;
+  --status-failed-ink: #8e1220;
+  --status-expired-bg: #e8ebee;
+  --status-expired-ink: #45535f;
+  --radius: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.55;
+}
+
+.topbar {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.brand {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 1.15rem;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+
+h1 { font-size: 1.5rem; margin: 0 0 0.5rem; }
+
+.lead { color: var(--muted); margin: 0 0 1.25rem; }
+
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 1rem 1.25rem;
+  margin-top: 1rem;
+}
+
+.footer p { margin: 0; color: var(--muted); font-size: 0.875rem; }
+.footer a { color: var(--accent); }
+
+/* Daftar produk: dua item dengan konten beda (nama dan harga), struktur seragam
+   hanya karena bentuk kontennya memang sama (katalog dua produk). */
+.products {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.products__item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.products__name { font-weight: 600; margin: 0; }
+.products__price { color: var(--muted); margin: 0 0 0.6rem; font-variant-numeric: tabular-nums; }
+.products__buy { flex: 0 0 auto; }
+.products__loading { color: var(--muted); padding: 0.5rem 0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--accent-press); border-color: var(--accent-press); }
+.btn[disabled] { opacity: 0.55; cursor: progress; }
+
+.btn--ghost {
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.btn--ghost:hover { background: #eef4f1; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.alert {
+  border: 1px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.75rem 1rem;
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+
+.alert.is-error { border-color: #8e1220; background: var(--status-failed-bg); }
+
+.order {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.order__detail {
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.order__detail > div { display: flex; gap: 0.75rem; }
+.order__detail dt { color: var(--muted); min-width: 7.5rem; }
+.order__detail dd { margin: 0; overflow-wrap: anywhere; }
+
+.order__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 0.5rem;
+}
+
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0.5rem 0 0; }
+
+.badge {
+  display: inline-block;
+  margin: 0 0 0.75rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.badge--pending { background: var(--status-pending-bg); color: var(--status-pending-ink); }
+.badge--paid { background: var(--status-paid-bg); color: var(--status-paid-ink); }
+.badge--failed { background: var(--status-failed-bg); color: var(--status-failed-ink); }
+.badge--expired { background: var(--status-expired-bg); color: var(--status-expired-ink); }
+.badge--refunded { background: var(--status-expired-bg); color: var(--status-expired-ink); }
+
+@media (max-width: 480px) {
+  .order__detail > div { flex-direction: column; gap: 0.1rem; }
+  .products__item { flex-direction: column; align-items: stretch; }
+  .products__buy .btn { width: 100%; }
+}
