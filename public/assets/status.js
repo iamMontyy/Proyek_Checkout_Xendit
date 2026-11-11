@@ -1,4 +1,4 @@
-// Halaman status: baca order_id dari URL (atau pesanan terakhir), lalu polling dua arah.
+
 const cardEl = document.getElementById('order-card');
 const alertEl = document.getElementById('alert');
 const badgeEl = document.getElementById('order-status');
@@ -43,7 +43,6 @@ function renderOrder(order) {
   payEl.hidden = !canPay;
   if (canPay) payEl.href = order.payment_url;
 
-  // Cek manual ke Xendit hanya relevan selagi pembayaran belum selesai.
   refreshEl.hidden = order.status !== 'pending';
   refreshEl.disabled = false;
 
@@ -76,7 +75,6 @@ async function loadOrder() {
 }
 
 (async function init() {
-  // URL kembali dari halaman checkout membawa ?order_id; localStorage menjadi cadangan saat update halaman.
   const params = new URLSearchParams(location.search);
   const orderId = params.get('order_id') || localStorage.getItem('last_order_id');
 
