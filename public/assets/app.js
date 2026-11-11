@@ -1,4 +1,4 @@
-// Halaman produk: muat katalog, buat pesanan di backend, lalu pindah ke URL pembayaran.
+
 const listEl = document.getElementById('product-list');
 const alertEl = document.getElementById('alert');
 
