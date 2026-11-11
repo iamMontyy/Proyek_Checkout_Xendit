@@ -5,7 +5,6 @@ const { router: productsRouter } = require('./src/routes/products');
 const checkoutRouter = require('./src/routes/checkout');
 const webhookRouter = require('./src/routes/webhook');
 const ordersRouter = require('./src/routes/orders');
-
 const app = express();
 
 app.use(express.json({ limit: '256kb' }));
