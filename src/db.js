@@ -2,9 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const DB_FILE = path.join(DATA_DIR, 'orders.json');
-
 fs.mkdirSync(DATA_DIR, { recursive: true });
-
 const orders = new Map();
 
 if (fs.existsSync(DB_FILE)) {
