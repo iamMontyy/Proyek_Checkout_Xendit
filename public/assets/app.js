@@ -1,7 +1,5 @@
-
 const listEl = document.getElementById('product-list');
 const alertEl = document.getElementById('alert');
-
 const rupiah = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 });
 
 function showAlert(message, isError = true) {
