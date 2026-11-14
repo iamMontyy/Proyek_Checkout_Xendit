@@ -1,4 +1,3 @@
-
 const SESSION_STATUS = {
   ACTIVE: 'pending',
   COMPLETED: 'paid',
