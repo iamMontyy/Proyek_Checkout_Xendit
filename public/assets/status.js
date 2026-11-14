@@ -1,4 +1,3 @@
-
 const cardEl = document.getElementById('order-card');
 const alertEl = document.getElementById('alert');
 const badgeEl = document.getElementById('order-status');
