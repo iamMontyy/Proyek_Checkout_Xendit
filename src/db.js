@@ -32,5 +32,4 @@ function saveOrder(order) {
 function list() {
   return [...orders.values()];
 }
-
 module.exports = { get, saveOrder, list, DB_FILE };
