@@ -8,7 +8,6 @@ const ordersRouter = require('./src/routes/orders');
 const app = express();
 
 app.use(express.json({ limit: '256kb' }));
-
 app.use((req, res, next) => {
   const start = process.hrtime.bigint();
   res.on('finish', () => {
