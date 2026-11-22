@@ -3,7 +3,7 @@ const express = require('express');
 const config = require('./src/config');
 const { router: productsRouter } = require('./src/routes/products');
 const checkoutRouter = require('./src/routes/checkout');
-const webhookRouter = require('./src/routes/webhook');
+const webhookRouter = require('./src/routes/webhook')
 const ordersRouter = require('./src/routes/orders');
 const app = express();
 
