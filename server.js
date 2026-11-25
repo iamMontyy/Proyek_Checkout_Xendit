@@ -23,7 +23,7 @@ app.use('/api/checkout', checkoutRouter);
 app.use('/api/webhook', webhookRouter);
 app.use('/api/orders', ordersRouter);
 
-app.use('/api', (req, res) => 
+app.use('/api', (req, res) => {
   res.status(404).json({ error: 'Endpoint API tidak ditemukan' });
 });
 
